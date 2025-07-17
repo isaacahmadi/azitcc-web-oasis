@@ -29,7 +29,7 @@ const Index = () => {
       title: "Accounting Software",
       description: "Master popular accounting and financial management software",
       icon: Calculator,
-      image: accountingSoftware,
+      image: itDepartment,
       courses: ["QuickBooks", "Tally", "Peachtree", "Excel Advanced"]
     }
   ];
@@ -128,7 +128,7 @@ const Index = () => {
                     ))}
                   </div>
                   <Button asChild variant="outline" className="w-full">
-                    <Link to="/departments">Learn More</Link>
+                    <Link to="/courses">Read More</Link>
                   </Button>
                 </CardContent>
               </Card>
@@ -194,9 +194,9 @@ const Index = () => {
             <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90">
               <Link to="/courses">View All Courses</Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-primary">
-              <Link to="/contact">Contact Us Today</Link>
-            </Button>
+              <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-primary bg-white/10">
+                <Link to="/contact">Contact Us Today</Link>
+              </Button>
           </div>
         </div>
       </section>
