@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -57,16 +57,6 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* Social Media */}
-            <div className="mt-6">
-              <h5 className="font-medium mb-3">Follow Us</h5>
-              <div className="flex space-x-3">
-                <Facebook size={20} className="opacity-60 hover:opacity-100 transition-opacity cursor-pointer" />
-                <Twitter size={20} className="opacity-60 hover:opacity-100 transition-opacity cursor-pointer" />
-                <Linkedin size={20} className="opacity-60 hover:opacity-100 transition-opacity cursor-pointer" />
-                <Instagram size={20} className="opacity-60 hover:opacity-100 transition-opacity cursor-pointer" />
-              </div>
-            </div>
           </div>
         </div>
 
