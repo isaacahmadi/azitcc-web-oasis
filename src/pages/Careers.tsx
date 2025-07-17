@@ -164,46 +164,48 @@ const Careers = () => {
 
           <Card className="bg-gradient-to-br from-primary/5 to-accent/5">
             <CardContent className="p-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                <div>
-                  <h3 className="text-2xl font-semibold text-primary mb-4">Submit Your Application</h3>
-                  <p className="text-muted-foreground mb-6 leading-relaxed">
-                    Even though we don't have open positions right now, we're always looking for talented 
-                    individuals to join our team when opportunities arise. Submit your resume and we'll 
-                    keep it on file for future openings.
+              <div className="text-center">
+                <h3 className="text-2xl font-semibold text-primary mb-6">How to Apply</h3>
+                
+                <div className="max-w-2xl mx-auto mb-8">
+                  <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
+                    To apply for a position at AZITCC, please email your CV along with your desired course/department to our recruitment team.
                   </p>
                   
-                  <div className="space-y-4">
-                    <div className="flex items-center space-x-3">
-                      <Mail className="h-5 w-5 text-accent" />
-                      <span>Email: info@azitcc.com</span>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <MapPin className="h-5 w-5 text-accent" />
-                      <span>Visit us: Karte-parwan, Khaja Rawash Street, Home # 1165</span>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <Clock className="h-5 w-5 text-accent" />
-                      <span>Office Hours: Sunday - Thursday, 8:00 AM - 5:00 PM</span>
+                  <div className="bg-background p-6 rounded-xl border">
+                    <div className="space-y-4">
+                      <div className="flex items-center justify-center space-x-3 text-accent">
+                        <Mail className="h-6 w-6" />
+                        <span className="text-lg font-semibold">careers@azitcc.com</span>
+                      </div>
+                      
+                      <div className="border-t pt-4">
+                        <h4 className="text-lg font-semibold text-primary mb-3">Email Requirements:</h4>
+                        <ul className="text-left space-y-2 text-muted-foreground">
+                          <li>• Subject: "Application - [Your Name] - [Desired Department]"</li>
+                          <li>• Attach your updated CV/Resume</li>
+                          <li>• Specify which department you're interested in</li>
+                          <li>• Include your contact information</li>
+                          <li>• Professional certifications (if applicable)</li>
+                        </ul>
+                      </div>
                     </div>
                   </div>
                 </div>
 
-                <div className="bg-background p-6 rounded-xl border">
-                  <h4 className="text-lg font-semibold text-primary mb-4">Required Documents:</h4>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
-                    <li>• Updated Resume/CV</li>
-                    <li>• Cover Letter</li>
-                    <li>• Academic Transcripts</li>
-                    <li>• Professional Certifications</li>
-                    <li>• Work Portfolio (if applicable)</li>
-                    <li>• References (minimum 2)</li>
-                  </ul>
-                  
-                  <Button className="w-full mt-6 bg-accent hover:bg-accent/90">
-                    <Mail className="w-4 h-4 mr-2" />
-                    Send Application
-                  </Button>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-muted-foreground">
+                  <div className="flex items-center justify-center space-x-2">
+                    <Mail className="h-4 w-4 text-accent" />
+                    <span>careers@azitcc.com</span>
+                  </div>
+                  <div className="flex items-center justify-center space-x-2">
+                    <MapPin className="h-4 w-4 text-accent" />
+                    <span>Karte-parwan, Khaja Rawash Street</span>
+                  </div>
+                  <div className="flex items-center justify-center space-x-2">
+                    <Clock className="h-4 w-4 text-accent" />
+                    <span>Sun-Thu, 8:00 AM - 5:00 PM</span>
+                  </div>
                 </div>
               </div>
             </CardContent>

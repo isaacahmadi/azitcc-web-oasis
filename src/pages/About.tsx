@@ -2,8 +2,8 @@ import { GraduationCap, Users, Award, Target, Heart, Globe, CheckCircle } from "
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import teachersTeam from "@/assets/teachers-team.jpg";
-import heroClassroom from "@/assets/hero-classroom.jpg";
+import teachersTeam from "@/assets/male-teachers-team.jpg";
+import heroClassroom from "@/assets/male-instructors-classroom.jpg";
 
 const About = () => {
   const values = [
@@ -44,7 +44,7 @@ const About = () => {
       experience: "8+ years"
     },
     {
-      name: "Fatima Karimi",
+      name: "Abdul Rahman Qaderi",
       position: "Lead Accounting Instructor",
       expertise: "Financial Management, ERP Systems",
       experience: "6+ years"
@@ -56,7 +56,7 @@ const About = () => {
       experience: "10+ years"
     },
     {
-      name: "Maryam Hosseini",
+      name: "Hassan Ali Nazari",
       position: "IT Training Coordinator",
       expertise: "Database Management, Web Development",
       experience: "5+ years"

@@ -4,8 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import heroClassroom from "@/assets/hero-classroom.jpg";
-import teachersTeam from "@/assets/teachers-team.jpg";
+import heroClassroom from "@/assets/male-instructors-classroom.jpg";
+import teachersTeam from "@/assets/male-teachers-team.jpg";
 import itDepartment from "@/assets/it-department.jpg";
 import accountingSoftware from "@/assets/accounting-software.jpg";
 
@@ -69,7 +69,7 @@ const Index = () => {
                   Explore Courses <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-primary">
+              <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-primary bg-white/10">
                 <Link to="/contact">Contact Us</Link>
               </Button>
             </div>
