@@ -1,27 +1,529 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AZITCC - Advanced Zone of Information Technology Certification Center</title>
-    <meta name="description" content="Professional IT education and certification center in Kabul, Afghanistan. Offering courses in IT, Engineering, and Accounting software with web development services." />
-    <meta name="author" content="AZITCC" />
+    <meta name="description" content="Professional IT education and certification center in Kabul, Afghanistan. Offering courses in IT, Engineering, and Accounting software with web development services.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .hero-gradient { background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #60a5fa 100%); }
+        .card-hover { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .card-hover:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .fade-in { opacity: 0; animation: fadeIn 0.6s ease forwards; }
+        @keyframes fadeIn { to { opacity: 1; } }
+        .slide-in { opacity: 0; transform: translateY(30px); animation: slideIn 0.8s ease forwards; }
+        @keyframes slideIn { to { opacity: 1; transform: translateY(0); } }
+        .nav-link { position: relative; transition: color 0.3s ease; }
+        .nav-link:hover { color: #3b82f6; }
+        .nav-link.active { color: #3b82f6; }
+        .nav-link.active::after { 
+            content: ''; 
+            position: absolute; 
+            bottom: -2px; 
+            left: 0; 
+            width: 100%; 
+            height: 2px; 
+            background: #3b82f6; 
+        }
+        .mobile-menu { display: none; }
+        .mobile-menu.active { display: block; }
+        @media (max-width: 768px) {
+            .desktop-nav { display: none; }
+            .mobile-nav { display: block; }
+        }
+        @media (min-width: 769px) {
+            .desktop-nav { display: block; }
+            .mobile-nav { display: none; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <h1 class="text-2xl font-bold text-blue-600">AZITCC</h1>
+                    </div>
+                </div>
 
-    <meta property="og:title" content="8637ce40-e290-4b0f-958f-362f72763be9" />
-    <meta property="og:description" content="Lovable Generated Project" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+                <!-- Desktop Navigation -->
+                <div class="desktop-nav flex items-center space-x-8">
+                    <a href="#home" class="nav-link active text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">Home</a>
+                    <a href="#departments" class="nav-link text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">Departments</a>
+                    <a href="#courses" class="nav-link text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">Courses</a>
+                    <a href="#careers" class="nav-link text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">Careers</a>
+                    <a href="#about" class="nav-link text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">About</a>
+                    <a href="#contact" class="nav-link text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">Contact</a>
+                </div>
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@lovable_dev" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-  </head>
+                <!-- Mobile menu button -->
+                <div class="mobile-nav flex items-center">
+                    <button onclick="toggleMobileMenu()" class="text-gray-700 hover:text-blue-600 focus:outline-none">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+            <!-- Mobile Navigation Menu -->
+            <div id="mobile-menu" class="mobile-menu bg-white border-t border-gray-200">
+                <div class="px-2 pt-2 pb-3 space-y-1">
+                    <a href="#home" class="block px-3 py-2 text-base font-medium text-blue-600 bg-blue-50 rounded-md">Home</a>
+                    <a href="#departments" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md">Departments</a>
+                    <a href="#courses" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md">Courses</a>
+                    <a href="#careers" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md">Careers</a>
+                    <a href="#about" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md">About</a>
+                    <a href="#contact" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section id="home" class="hero-gradient text-white py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center fade-in">
+                    <h1 class="text-5xl md:text-6xl font-bold mb-6">
+                        Advanced Zone of Information Technology
+                    </h1>
+                    <p class="text-xl md:text-2xl mb-8 opacity-90">
+                        Professional IT Education & Certification Center in Kabul, Afghanistan
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <button onclick="scrollToSection('courses')" class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                            Explore Courses
+                        </button>
+                        <button onclick="scrollToSection('contact')" class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors">
+                            Contact Us
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                    <div class="slide-in">
+                        <div class="text-4xl font-bold text-blue-600 mb-2">500+</div>
+                        <div class="text-gray-600">Students Graduated</div>
+                    </div>
+                    <div class="slide-in" style="animation-delay: 0.1s">
+                        <div class="text-4xl font-bold text-blue-600 mb-2">15+</div>
+                        <div class="text-gray-600">Expert Instructors</div>
+                    </div>
+                    <div class="slide-in" style="animation-delay: 0.2s">
+                        <div class="text-4xl font-bold text-blue-600 mb-2">20+</div>
+                        <div class="text-gray-600">Courses Available</div>
+                    </div>
+                    <div class="slide-in" style="animation-delay: 0.3s">
+                        <div class="text-4xl font-bold text-blue-600 mb-2">95%</div>
+                        <div class="text-gray-600">Job Placement Rate</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Departments Section -->
+        <section id="departments" class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-4">Our Departments</h2>
+                    <p class="text-xl text-gray-600">Comprehensive education across multiple technology domains</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- IT Department -->
+                    <div class="card-hover bg-white rounded-xl shadow-lg p-8">
+                        <div class="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+                            <i data-lucide="monitor" class="w-8 h-8 text-blue-600"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Information Technology</h3>
+                        <p class="text-gray-600 mb-6">Comprehensive IT education covering programming, networking, and system administration.</p>
+                        <div class="space-y-2 mb-6">
+                            <div class="text-sm text-gray-500">Popular Courses:</div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Web Development</span>
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Networking</span>
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Database Management</span>
+                            </div>
+                        </div>
+                        <button onclick="scrollToSection('courses')" class="text-blue-600 font-semibold hover:text-blue-700">Learn More →</button>
+                    </div>
+
+                    <!-- Engineering Department -->
+                    <div class="card-hover bg-white rounded-xl shadow-lg p-8">
+                        <div class="w-16 h-16 bg-green-100 rounded-lg flex items-center justify-center mb-6">
+                            <i data-lucide="cog" class="w-8 h-8 text-green-600"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Engineering</h3>
+                        <p class="text-gray-600 mb-6">Advanced engineering courses focusing on practical applications and industry standards.</p>
+                        <div class="space-y-2 mb-6">
+                            <div class="text-sm text-gray-500">Popular Courses:</div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Software Engineering</span>
+                                <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">System Design</span>
+                                <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Project Management</span>
+                            </div>
+                        </div>
+                        <button onclick="scrollToSection('courses')" class="text-green-600 font-semibold hover:text-green-700">Learn More →</button>
+                    </div>
+
+                    <!-- Accounting Software Department -->
+                    <div class="card-hover bg-white rounded-xl shadow-lg p-8">
+                        <div class="w-16 h-16 bg-purple-100 rounded-lg flex items-center justify-center mb-6">
+                            <i data-lucide="calculator" class="w-8 h-8 text-purple-600"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Accounting Software</h3>
+                        <p class="text-gray-600 mb-6">Professional training in modern accounting software and financial management systems.</p>
+                        <div class="space-y-2 mb-6">
+                            <div class="text-sm text-gray-500">Popular Courses:</div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">QuickBooks</span>
+                                <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Excel Advanced</span>
+                                <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Financial Reporting</span>
+                            </div>
+                        </div>
+                        <button onclick="scrollToSection('courses')" class="text-purple-600 font-semibold hover:text-purple-700">Learn More →</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Preview Section -->
+        <section id="about" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-4xl font-bold text-gray-900 mb-6">About AZITCC</h2>
+                        <p class="text-lg text-gray-600 mb-6">
+                            Advanced Zone of Information Technology Certification Center (AZITCC) is a leading educational institution in Kabul, Afghanistan, dedicated to providing world-class IT education and professional certifications.
+                        </p>
+                        <p class="text-lg text-gray-600 mb-8">
+                            Since our establishment, we have been committed to bridging the gap between traditional education and industry demands, preparing our students for successful careers in the rapidly evolving technology sector.
+                        </p>
+                        <div class="grid grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-2">Our Mission</h4>
+                                <p class="text-gray-600 text-sm">To provide accessible, high-quality IT education that empowers individuals and strengthens communities.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-2">Our Vision</h4>
+                                <p class="text-gray-600 text-sm">To be the premier technology education center in Afghanistan, recognized for excellence and innovation.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:pl-8">
+                        <img src="src/assets/teachers-team.jpg" alt="AZITCC Team" class="rounded-xl shadow-lg w-full h-auto">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Courses Preview Section -->
+        <section id="courses" class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-4">Featured Courses</h2>
+                    <p class="text-xl text-gray-600">Industry-relevant courses designed for your success</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="card-hover bg-white rounded-xl shadow-lg overflow-hidden">
+                        <div class="h-48 bg-gradient-to-r from-blue-500 to-blue-600"></div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Web Development Fundamentals</h3>
+                            <p class="text-gray-600 mb-4">Learn HTML, CSS, JavaScript, and modern frameworks to build responsive websites.</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-500">12 weeks</span>
+                                <span class="text-blue-600 font-semibold">Beginner</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-hover bg-white rounded-xl shadow-lg overflow-hidden">
+                        <div class="h-48 bg-gradient-to-r from-green-500 to-green-600"></div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Database Administration</h3>
+                            <p class="text-gray-600 mb-4">Master SQL, database design, and administration of popular database systems.</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-500">10 weeks</span>
+                                <span class="text-green-600 font-semibold">Intermediate</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-hover bg-white rounded-xl shadow-lg overflow-hidden">
+                        <div class="h-48 bg-gradient-to-r from-purple-500 to-purple-600"></div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Digital Marketing & SEO</h3>
+                            <p class="text-gray-600 mb-4">Comprehensive digital marketing strategies and search engine optimization techniques.</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-500">8 weeks</span>
+                                <span class="text-purple-600 font-semibold">Beginner</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-12">
+                    <button onclick="alert('Full course catalog coming soon!')" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+                        View All Courses
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section id="careers" class="py-20 hero-gradient text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-4xl font-bold mb-6">Ready to Start Your Tech Journey?</h2>
+                <p class="text-xl mb-8 opacity-90">Join thousands of successful graduates who've transformed their careers with AZITCC</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button onclick="scrollToSection('contact')" class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                        Enroll Now
+                    </button>
+                    <button onclick="alert('Course catalog will be available soon!')" class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors">
+                        Download Brochure
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-4">Get in Touch</h2>
+                    <p class="text-xl text-gray-600">Ready to begin your journey? Contact us today!</p>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-12">
+                    <!-- Contact Info -->
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-6">Contact Information</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="map-pin" class="w-6 h-6 text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900">Address</h4>
+                                    <p class="text-gray-600">Kabul, Afghanistan</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="phone" class="w-6 h-6 text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900">Phone</h4>
+                                    <p class="text-gray-600">+93 XXX XXX XXX</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <i data-lucide="mail" class="w-6 h-6 text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900">Email</h4>
+                                    <p class="text-gray-600">info@azitcc.edu.af</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div>
+                        <form onsubmit="handleFormSubmit(event)" class="space-y-6">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="firstName" class="block text-sm font-medium text-gray-700 mb-2">First Name</label>
+                                    <input type="text" id="firstName" name="firstName" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                </div>
+                                <div>
+                                    <label for="lastName" class="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
+                                    <input type="text" id="lastName" name="lastName" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                                <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            </div>
+
+                            <div>
+                                <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">Subject</label>
+                                <select id="subject" name="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                    <option value="">Select a subject</option>
+                                    <option value="enrollment">Course Enrollment</option>
+                                    <option value="information">General Information</option>
+                                    <option value="support">Technical Support</option>
+                                    <option value="partnership">Partnership Opportunities</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                                <textarea id="message" name="message" rows="4" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Tell us how we can help you..."></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="lg:col-span-2">
+                    <h3 class="text-2xl font-bold mb-4">AZITCC</h3>
+                    <p class="text-gray-300 mb-6 max-w-md">
+                        Advanced Zone of Information Technology Certification Center - Empowering Afghanistan's tech future through quality education and professional certification programs.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-300 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#departments" class="text-gray-300 hover:text-white transition-colors">Departments</a></li>
+                        <li><a href="#courses" class="text-gray-300 hover:text-white transition-colors">Courses</a></li>
+                        <li><a href="#about" class="text-gray-300 hover:text-white transition-colors">About</a></li>
+                        <li><a href="#contact" class="text-gray-300 hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+                    <div class="space-y-3">
+                        <div class="flex items-center space-x-3">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-blue-400"></i>
+                            <span class="text-gray-300">Kabul, Afghanistan</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i data-lucide="phone" class="w-5 h-5 text-blue-400"></i>
+                            <span class="text-gray-300">+93 XXX XXX XXX</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i data-lucide="mail" class="w-5 h-5 text-blue-400"></i>
+                            <span class="text-gray-300">info@azitcc.edu.af</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p class="text-gray-300">
+                    © 2024 Advanced Zone of Information Technology Certification Center. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('active');
+        }
+
+        // Smooth scrolling
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Navigation active state
+        function updateActiveNav() {
+            const sections = ['home', 'departments', 'courses', 'careers', 'about', 'contact'];
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = 'home';
+            
+            sections.forEach(sectionId => {
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    const rect = section.getBoundingClientRect();
+                    if (rect.top <= 100 && rect.bottom >= 100) {
+                        current = sectionId;
+                    }
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // Form submission
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+            
+            // Simulate form submission
+            alert('Thank you for your message! We will get back to you soon.');
+            event.target.reset();
+        }
+
+        // Navigation click handlers
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                scrollToSection(targetId);
+                
+                // Close mobile menu if open
+                const mobileMenu = document.getElementById('mobile-menu');
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        // Scroll event listener for active nav
+        window.addEventListener('scroll', updateActiveNav);
+
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', function() {
+            updateActiveNav();
+        });
+    </script>
+</body>
 </html>
